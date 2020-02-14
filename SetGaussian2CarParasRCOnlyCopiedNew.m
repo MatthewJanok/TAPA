@@ -1,6 +1,6 @@
 Coupled = 1;%No V, E, or Rho. Proton and Electron not coupled?
 TwoCarriers = 1; %electrons and protons
-RC = 1; %Built-in E-field?
+RC = 1; %Recombination
 
 nx = 201;
 l = 1e-6; 
@@ -34,8 +34,7 @@ NetDoping = ones(1,nx).*Nd; % doping
 
 x0 = l/2;
 nw = l/20;
-% npDisturbance = 1e16*1e6*exp(-((x-x0)/nw).^2); %Recombination? Makes things symmetrical
-npDisturbance = 1e16*1e6*exp(-((x-x0)/nw).^2); %Recombination? Makes things symmetrical
+npDisturbance = 0; %1e16*1e6*exp(-((x-x0)/nw).^2); %Recombination? Makes things symmetrical
 
 
 LVbc = 0;

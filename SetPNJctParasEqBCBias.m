@@ -12,10 +12,14 @@ xm = x(1:nx-1) + 0.5*dx;
 ni = x < l/2;
 pi = x >= l/2;
 
-Nd = 4e16 * 1e6; % Const. 1/cm3 (100 cm/m)^3
+Nd = 1e16 * 1e6; % Const. 1/cm3 (100 cm/m)^3
 Na = 1e16 * 1e6;
-NetDoping(ni) = Nd;
-NetDoping(pi) = -Na;
+
+% NetDopoing = linspace(1e6, 4e16, 0.5);%(Nd-Na)./ni;
+% NetDoping = linspace(1e6, 4e16, 0.5);%(Nd-Na)./pi;
+
+NetDoping(ni) = linspace(Nd,0,100);
+NetDoping(pi) = linspace(0,-Na,101);
 
 x0 = l/2;
 nw = l/20;
@@ -36,11 +40,11 @@ Wp = (W - Wn);
 LVbc = Phi;
 
 PlotSS = 0;
-PlotYAxis = {[0 Phi+0.1] [0e5 40e5] [-20e2 40e2]...
-    [0e21 2.5e22] [0 1.1e22] [0 20e43]...
-    [-5e33 5e33] [-5e33 5e33] [-0e8 3e8] ...
-    [1e-3 1e8] [-3e6 1e6] [0 2.5e22]};
-doPlotImage = 1;
+% PlotYAxis = {[0 Phi+0.1] [0e5 40e5] [-20e2 40e2]...
+%     [0e21 2.5e22] [0 1.1e22] [0 20e43]...
+%     [-5e33 5e33] [-5e33 5e33] [-0e8 3e8] ...
+%     [1e-3 1e8] [-3e6 1e6] [0 2.5e22]};
+% doPlotImage = 1;
 
 SecondSim = 1;
 LVbc2 = Phi-0.3;
